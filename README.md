@@ -1,3 +1,5 @@
+[日本語](README.ja.md) | English
+
 # fish-ghq-worktree
 
 A [Fisher](https://github.com/jorgebucaran/fisher) plugin for Fish shell that integrates `ghq`, `fzf`, and `git worktree` to minimize context-switching cost in multi-repository development.
