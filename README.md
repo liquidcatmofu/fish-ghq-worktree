@@ -26,6 +26,10 @@ A [Fisher](https://github.com/jorgebucaran/fisher) plugin for Fish shell that in
 | [jq](https://jqlang.github.io/jq/) | JSON parsing for GitHub API |
 | [Nerd Fonts](https://www.nerdfonts.com) | Icons in terminal |
 
+## Related
+
+- [zsh-ghq-worktree](https://github.com/liquidcatmofu/zsh-ghq-worktree) — zsh version
+
 ## Installation
 
 ```fish

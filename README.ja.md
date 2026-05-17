@@ -26,6 +26,10 @@
 | [jq](https://jqlang.github.io/jq/) | GitHub API のレスポンス解析 |
 | [Nerd Fonts](https://www.nerdfonts.com) | ターミナル上のアイコン表示 |
 
+## 関連
+
+- [zsh-ghq-worktree](https://github.com/liquidcatmofu/zsh-ghq-worktree) — zsh 版
+
 ## インストール
 
 ```fish
