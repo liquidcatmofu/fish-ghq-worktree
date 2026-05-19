@@ -9,8 +9,10 @@ A [Fisher](https://github.com/jorgebucaran/fisher) plugin for Fish shell that in
 - **`gcd`** — Search and jump to any `ghq`-managed repository via fzf, with Nerd Font icons replacing domain names for compact display
 - **`gwcd`** — Switch between git worktrees of the current repository with color-coded fzf UI, or jump directly by branch name
 - **`gwa`** — Create a new git worktree, flattening `feature/login`-style branch names to `repo+feature%login` directories; select a branch via fzf if no argument is given
+- **`gwapr`** — Select an open pull request and create a worktree for its branch
 - **`gget`** — Browse and clone your GitHub repositories (own / collaborator / org) via `ghq`, with per-type color coding
 - **`gsearch`** — Search all of GitHub by keyword and clone the result via `ghq`
+- **`gcreate`** — Create a new GitHub repository and clone it via `ghq`
 
 ## Requirements
 
@@ -67,6 +69,14 @@ Creates a new worktree for the given branch next to the current repository direc
 gwa [-h] [branch]
 ```
 
+### `gwapr` — Create a worktree from a pull request
+
+Lists open pull requests via `gh pr list`, opens fzf to select one, then creates a worktree for its branch. Remote-only branches are fetched and set up with tracking automatically.
+
+```
+gwapr [-h]
+```
+
 ### `gget` — Clone a GitHub repository
 
 Lists GitHub repositories accessible to you and clones the selected one via `ghq`. After cloning, prompts whether to `cd` into the new directory. Repositories are color-coded by type.
@@ -95,6 +105,26 @@ Searches all of GitHub by keyword using `gh search repos`, opens fzf to select a
 ```
 gsearch [-h] <query>
 ```
+
+### `gcreate` — Create a repository and clone
+
+Creates a new GitHub repository and clones it via `ghq`. After cloning, prompts whether to `cd` into the new directory. Defaults to private visibility.
+
+```
+gcreate [-h] [-p] [-P] [-d <description>] [name]
+```
+
+| Option | Description |
+|--------|-------------|
+| `-p`, `--public` | Create a public repository |
+| `-P`, `--private` | Create a private repository (default) |
+| `-d`, `--description <text>` | Repository description |
+| `-r`, `--readme` | Add a README file |
+| `-l`, `--license [id]` | Add a license — opens fzf to select if `id` is omitted |
+| `-g`, `--gitignore [tmpl]` | Add a .gitignore — opens fzf to select if `tmpl` is omitted |
+| `--disable-issues` | Disable issues |
+| `--disable-wiki` | Disable wiki |
+| `-H`, `--homepage <url>` | Repository homepage URL |
 
 ## Abbreviations
 
