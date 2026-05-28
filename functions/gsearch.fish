@@ -21,10 +21,10 @@ function gsearch --description 'Search GitHub repositories by keyword and ghq ge
     end
 
     set -l repo (gh search repos $argv --limit 100 | fzf --reverse --height 60% \
-        --preview 'gh repo view (string split -f1 " " {1}) | bat -l md --color=always --style=plain')
+        --preview 'gh repo view (echo {1} | awk "{print \$1}") | bat -l md --color=always --style=plain')
 
     if test -n "$repo"
-        set -l repo_name (string split -f1 " " "$repo")
+        set -l repo_name (echo "$repo" | awk '{print $1}')
         ghq get $repo_name
         read -l -P "cd into $repo_name? [Y/n] " answer
         if test -z "$answer" -o "$answer" = Y -o "$answer" = y
